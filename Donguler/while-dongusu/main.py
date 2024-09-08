@@ -63,7 +63,6 @@ Ancak eğer biz while döngülerinde bu durumu unutursak , döngümüz sonsuza k
 print(*"----------------")
 print(*"----------------")
 
-# Bu kodu çaıştırmayalım. Jupyter sıkıntı çıkarabilir :)
 i = 0 
 while (i < 10):
     print(i)
