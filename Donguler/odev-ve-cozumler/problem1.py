@@ -4,7 +4,6 @@ Kullanıcıdan aldığınız bir sayının mükemmel olup olmadığını bulmaya
 
 Bir sayının kendi hariç bölenlerinin toplamı kendine eşitse bu sayıya "mükemmel sayı" denir. Örnek olarak, 6 mükemmel bir sayıdır. (1 + 2 + 3 = 6)
 """
-
 sayi = int(input("Sayı: "))
 
 i = 1
@@ -16,6 +15,6 @@ while (i < sayi):
     i += 1
 
 if (toplam == sayi):
-    print(sayi, " Mükemmel bir sayıdır.")
+    print(sayi, "Mükemmel bir sayıdır.")
 else:
-    print(sayi, " Mükemmel bir sayı değildir.")
+    print(sayi, "Mükemmel bir sayı değildir.")
