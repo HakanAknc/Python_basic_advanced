@@ -141,3 +141,7 @@ class Araba():
 araba1 = Araba(beygir_gücü=85, renk= "Sİyah")
 print(araba1.renk)
 print(araba1.model)
+
+"""
+İşte burada gördüğümüz gibi bir objeyi init metodunu kendimiz yazarak farklı değerlerle oluşturabiliyoruz
+"""
