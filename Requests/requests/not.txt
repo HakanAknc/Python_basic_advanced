@@ -1,0 +1,30 @@
+Application Programming Interfaces – API
+Türkçe’ye Uygulama Programlama Arayüzü olarak çevrilen API, iki yazılımın birbiri ile konuşmasına imkan sağlayan bir araçtır. 
+API sayesinde bir uygulamanın sahip olduğu yeteneklere, uygulama sahibinin izin verdiği sınırlar içerisinde erişim sağlayabiliriz
+
+
+Peki bir API nasıl çalışır?
+API’ler, iki yazılımın (uygulama, makine vs.) birbiri ile nasıl iletişim kuracağını belirleyen kurallara sahip aracılardır. Bir API 3 elemandan oluşur:
+
+Erişim (Access): Veriye erişecek kullanıcıya ait bilgilerdir.
+İstek (Request): Veri kaynağından yanıt alabilmek için gönderilen taleptir.
+Sorgu adresi (Endpoint): Veriye nasıl erişilebileceğini gösteren iletişim noktalarıdır. İstekler bu noktalara gönderilir.
+Metot: Veri kaynağına yönelik yapılabilecek farklı işlemlerdir.
+Parametre: Elde edilecek yanıtı özelleştirebilen seçeneklerdir.
+Yanıt (Response): İstek sonunda elde edilen sonuç.
+
+----------------------------------------------------
+
+API’lerin çalışma prensiplerini gerçek bir örnek üzerinden inceleyelim. 
+Uçak bileti satın almak üzere bir havayolu şirketinin websitesini ziyaret ettiniz.
+Sonrasında:
+
+Websitesindeki arayüz/uygulama yardımı ile kalkış ve varış noktalarını, gidiş tarihinizi ve kaç kişi olduğu bilgilerini girdiniz.
+Girdiğiniz bilgiler API yardımı ile bir istek (request) olarak havayolu şirketinin web sunucularına gönderildi.
+Web sunucusu veri tabanı ile konuşarak uygun uçuşları, boşlukları ve fiyatları belirledi ve bilgiler/veriler ekranınıza bir yanıt (response) olarak gönderildi.
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+requests modülü
+Python’da herhangi bir API’ye istek gönderebilmek ve API’lerle çalışabilmek için “requests” modülü kullanılır.
+Requests, Python’da bulunan standart kütüphanelerden biri olmadığı için kullanıma başlamadan önce yüklenmesi gerekir.

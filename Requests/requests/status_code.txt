@@ -1,0 +1,17 @@
+En sık karşılaşılan HTTP yanıt kodlarını ve ne anlama geldiklerini şöyle özetleyebiliriz:
+Yanıt kodu	      -         Anlamı
+    200	          -         Eğer bir sonuç varsa, sonucun başarılı bir şekilde geri getirildiğini belirtir.
+    301	          -         Sunucu ilgili isteği farklı bir endpoint’e yönlendirmektedir. Alan adı değişikliklerinde görülür.
+    400	          -         Sunucu yanlış bir istek yolladığınızı düşünür.
+    401	          -         API kimlik bilgilerinin girilmediğini veya hatalı girildiğini belirtir.
+    403	          -         Erişilmek istenilen kaynağa erişmenizin yasak olduğunu belirtir.
+    404	          -         Erişmek istediğiniz noktanın sunucuda bulunmadığını belirtir.
+    503	          -         Sunucu isteğe yanıt vermek için hazır değildir.
+
+HTTP yanıt/durum kodları karışık ve detaylı gelebilir. 
+Basit bir kural tüm hata kodlarını şu şekilde kategorize edip daha kolay hatırlayabilirsiniz:
+
+“2” ile başlayan yanıt kodları isteğin başarılı olduğunu,
+“3” ile başlayan yanıt kodları isteğin gönderildiği adresin başka noktaya yönlendirme yaptığını,
+“4” ile başlayan yanıt kodları isteğin gönderildiği adresin gönderici kaynaklı hatalı olduğunu,
+“5” ile başlayan yanıt kodları ise isteğin sunucu tarafından karşılanamadığını, hata oluştuğunu belirtir.
