@@ -1,0 +1,18 @@
+Python'da modüler çalışma, bir programı veya projeyi daha küçük, bağımsız ve yeniden kullanılabilir 
+parçalara ayırarak organize etmektir.
+Bu parçalara modül denir. 
+Her modül, belirli bir işlevi yerine getiren bir Python dosyasıdır ve bu dosyalar bir araya gelerek
+daha büyük projeler oluşturur.
+--------
+
+Modüler çalışmanın amacı, kodun daha kolay anlaşılmasını, bakımını ve yeniden kullanılabilirliğini sağlamaktır. 
+Ayrıca, kodun farklı bölümleri üzerinde bağımsız olarak çalışabilme imkanı tanır.
+-----------
+
+Python'da Modüller ve Modüler Çalışmanın Avantajları
+Kodun yeniden kullanımı: Bir modülü bir kez yazdıktan sonra, başka projelerde de kullanabilirsiniz.
+Daha temiz ve anlaşılır kod: Büyük projeleri yönetmek zorlaşabilir. Modüller, kodunuzu daha düzenli ve okunabilir hale getirir.
+Bakımı kolaylaştırır: Her modül kendi başına çalıştığı için hataları bulmak ve düzeltmek daha kolay olur.
+Çalışma hızını artırır: Geliştirme sırasında sadece ilgili modülü güncellemek yeterlidir, tüm proje üzerinde değişiklik yapmanıza gerek kalmaz.
+------------
+
