@@ -1,0 +1,29 @@
+Genel olarak JSON işlemleri iki ana gruba ayrılır: serileştirme (serialization) ve seriden çıkarma (deserialization).
+Bu iki işlem için farklı fonksiyonlar kullanılır.
+---
+
+1. json.dumps() (Serialize - JSON formatına dönüştürme)
+Bu fonksiyon, Python nesnelerini (örneğin liste, sözlük) JSON formatında bir string olarak dönüştürür. 
+Yani, Python verisini JSON formatına çevirir.
+----
+
+2. json.dump() (Serialize ve dosyaya yazma)
+json.dumps, bir Python nesnesini bir JSON stringine dönüştürürken, json.dump() bu JSON verisini direkt olarak bir dosyaya yazar. 
+Dosya işlemleri için kullanılır.
+-----
+
+3. json.loads() (Deserialize - JSON stringini Python nesnesine dönüştürme)
+Bu fonksiyon, bir JSON stringini alıp Python'da kullanılabilir bir veri yapısına dönüştürür. 
+Yani, JSON formatındaki bir veriyi Python'daki bir nesneye (sözlük, liste vb.) çevirir.
+------
+
+4. json.load() (Deserialize ve dosyadan okuma)
+json.loads, JSON stringini Python nesnesine çevirirken, json.load() ise bir dosyadan JSON verisini okuyup, 
+Python nesnesine dönüştürür.
+-----
+
+Özet:
+json.dumps(): Python nesnesini JSON formatında bir stringe dönüştürür.
+json.dump(): Python nesnesini JSON formatında bir dosyaya yazar.
+json.loads(): JSON formatındaki bir stringi Python nesnesine dönüştürür.
+json.load(): Bir dosyadan JSON formatındaki veriyi okuyup Python nesnesine dönüştürür
