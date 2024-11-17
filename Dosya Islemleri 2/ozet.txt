@@ -1,0 +1,40 @@
+Özet
+'r': Sadece mevcut dosyayı okur. Dosya yoksa hata verir.
+'w': Dosya varsa içeriği siler, yoksa yeni bir dosya oluşturur.
+'a': Dosya varsa içeriği silmeden ekler, yoksa yeni bir dosya oluşturur.
+Pratik Senaryo
+Diyelim ki dosya.txt adında bir dosyanız var:
+
+'r' ile açarsanız: Eğer dosya var ise içeriğini okur; yoksa hata verir.
+'w' ile açarsanız: Var ise içeriği siler, yoksa yeni dosya oluşturur.
+'a' ile açarsanız: Var ise içerik silinmeden ekler, yoksa yeni dosya oluşturur.
+
+
+
+
+Özet
+Yazma Modları: 'w' ve 'a' modları dosya yoksa oluşturur.
+'w': Mevcut dosya varsa içeriği siler, yeni dosya oluşturur.
+'a': Mevcut dosyaya ekler, yoksa yeni dosya oluşturur.
+Okuma Modu: 'r' modunda dosya yoksa hata verir.
+Oluşturma Modu: 'x' modunda dosya yoksa oluşturur, mevcutsa hata verir.
+
+
+
+---------------------------------------------------------------------------------------------
+
+Dosya kipleri 
+  - w
+  - r
+  - a
+
+if not os.path.exists():
+else:
+  bu kısmın dosyanın var olup olmadığı kontrolünü sağlamktadır. 
+  with: Dosya açıldığında, bu yapı sayesinde dosya kullanımı bittiğinde otomatik olarak kapatılır. 
+  Bu, herhangi bir hata olsa bile dosyanın güvenli bir şekilde kapanmasını sağlar.
+  open()   : dosya açmak için kullanılır
+
+  r (read - okuma modu): dosya varsa okuma işlemi gerçekleştirir, dosya yoksa hata verir.
+  w (write - yazma modu): dosya yoksa dosya oluşturur, dosya varsa içeriği temizler ve veriyi yazar
+  a (append - ekleme modu): dosya yoksa oluşturur, dosya varsa ekleme yapar.
