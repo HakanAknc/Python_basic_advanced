@@ -1,0 +1,4 @@
+Servis başarıyla başlatılıd.
+Servis başarıyla durduldu.
+Servis başarıyla başlatılıd.
+Servis başarıyla durduldu.

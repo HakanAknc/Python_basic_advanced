@@ -1,0 +1,79 @@
+Servis kodu açıklaması
+-------------------------
+1. Kütüphanelerin İçe Aktarılması
+datetime: Zamanla ilgili işlemler için kullanılır (loglarda zaman damgası eklemek için).
+win32serviceutil: Windows servisleri ile ilgili yardımcı fonksiyonları içerir.
+servicemanager: Servis olaylarını yönetir ve loglama yapar.
+win32service ve win32event: Windows servisleri ve olayları için gerekli fonksiyonları içerir.
+traceback: Hata ayıklama için kullanılır, bir hata meydana geldiğinde hata detaylarını gösterir.
+main: Bu, senin uygulamanın ana işlevlerini içeren başka bir dosya veya modül. Bu modülde servis çalıştığında yapılacak işler bulunacak.
+os: Sistemle ilgili işlemler için kullanılır (dosya yolunu belirleme gibi).
+
+2. MyService Sınıfının Tanımlanması
+Burada MyService sınıfı, Windows servisi oluşturmak için win32serviceutil.ServiceFramework sınıfından türetiliyor. Bu, Windows'un servis yapısı için temel bir şablon sağlar.
+
+_svc_name_: Servisin kısa adı (Windows servisiyle ilişkilendirilir).
+_svc_display_name_: Servisin Windows'ta görünen adı.
+_svc_description_: Servisin kısa açıklaması.
+
+3. __init__ Fonksiyonu
+__init__: Bu, sınıf başlatıldığında çağrılan bir yapıcı fonksiyondur. Burada servis başlatılıyor ve gerekli işlemler yapılıyor.
+win32serviceutil.ServiceFramework.__init__(self, args): Bu satır, üst sınıfın (ServiceFramework) yapıcısını çağırarak servisle ilgili temel ayarları başlatır.
+self.hWaitStop = win32event.CreateEvent(None, 0, 0, None): Bu satır, servisin durdurulmasını bekleyecek bir olay (event) oluşturur. Yani servis durdurulmadan önce bir işlem yapılacaksa, burada belirlenen olay beklenir.
+self.is_alive = True: Bu, servisin çalışıp çalışmadığını takip etmek için bir bayrak oluşturur.
+self.log(...): Servis başarıyla başlatıldığında bir log mesajı yazdırılır.
+Eğer hata olursa, except bloğu çalışacak ve hatayı loglayacaktır.
+        Özet:
+            Bu fonksiyon, Windows servisinin başlatılma aşamasındaki işlemleri yapar:
+
+            Servis için gerekli temel yapılandırmalar yapılır (ServiceFramework başlatılır).
+            Servisin çalışmaya başlamasıyla ilgili olaylar ayarlanır.
+            Servisin durumunu izlemek için bir bayrak (is_alive) kullanılır.
+            Servis başarıyla başlatıldığında, bu durum loglanır.
+            Eğer bir hata olursa, hata yakalanır ve hem servis yöneticisine hem de log dosyasına kaydedil
+
+4. SvcStop Fonksiyonu (Servis Durdurulması)
+SvcStop: Bu fonksiyon, servis durdurulmak istendiğinde çalışır.
+self.ReportServiceStatus(win32service.SERVICE_STOP_PENDING): Servisin durma aşamasına geçtiğini Windows'a bildirir.
+win32event.SetEvent(self.hWaitStop): Servisi durdurma işlemini başlatır.
+self.is_alive = False: Servisin artık çalışmadığını belirtir.
+self.log(...): Servisin durdurulmaya başlandığını loglar.
+        Özet:
+            Bu metodun amacı, Windows servisinin durdurulması sürecini yönetmektir. Adım adım şu işlemleri yapar:
+            
+            Servisin durdurulma durumunu bildirir (SERVICE_STOP_PENDING).
+            Durdurma olayını tetikler, böylece servisin durdurulma işlemi başlatılır.
+            Servisin aktif olmadığını belirten bayrağı False yapar.
+            Servisin durdurulmaya başlandığını loglar.
+            Eğer bir hata oluşursa, hatayı loglar ve servis yöneticisine bildirir.
+
+5. SvcDoRun Fonksiyonu (Servis Çalıştırma)
+SvcDoRun: Bu fonksiyon, servis başarıyla başlatıldığında çalışır.
+self.log(...): Servisin başlatıldığını loglar.
+servicemanager.LogMsg(...): Servis başladığında Windows olay günlüğüne bir mesaj yazar.
+self.main(): Ana işlevi (main.main()) çalıştırır. Yani, burada servis çalışırken yapılacak asıl iş belirlenir.
+Hata olursa, hata mesajı loglanır ve servis durdurulur.
+        Özet:
+            SvcDoRun, servis başladığında çağrılan ve servisin ana işlevini çalıştıran metottur. Adım adım işleyiş:
+            
+            Servisin başlatıldığını loglar.
+            Windows servis yöneticisine servisin başladığını bildirir.
+            Ana işlevi çalıştırmak için main() metodunu çağırır.
+            Eğer hata oluşursa, hata mesajını loglar ve Windows servis yöneticisine bildirir.
+            Servisi durdurmak için SvcStop() metodunu çağırır.
+
+5. Main Fonksiyonu
+main(): Bu, servisin çalıştığı ana fonksiyondur. Burada asıl işlem gerçekleştirilir.
+main.main(): Bu satırda, başka bir modüldeki (main modülü) main() fonksiyonu çalıştırılır. Bu fonksiyon, servisin gerçekleştireceği ana işlevi içeriyor.
+Loglama: İşlem başarılıysa veya hata varsa loglar yazdırılır.
+        Özet:
+            main() fonksiyonu, servisin ana işlevlerini gerçekleştiren ve kontrol eden bir metodur. Adım adım işleyiş:
+            
+            Loglama: İlk olarak, fonksiyon başladığında log kaydeder.
+            Ana işlem: main.main() fonksiyonu çağrılır ve burada servis için önemli işlemler yapılır.
+            Başarı logu: Eğer her şey başarılı bir şekilde tamamlanırsa, başarıyla ilgili bir log kaydı yapılır.
+            Hata yönetimi: Eğer hata oluşursa, hata mesajı oluşturulur, loglanır ve Windows Event Log'a gönderilir.
+            Servis durdurma: Hata sonrası servis düzgün bir şekilde durdurulmaya çalışılır.
+
+
+
